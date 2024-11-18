@@ -23,3 +23,12 @@ Create Table puntuaciones (
     FOREIGN KEY  (id_jugador) REFERENCES jugadores -- esta seria la relacion que hay entre la tabla de puntuaciones 
     -- y jugadores ya que cada puntuacion tiene que ir relacionada con la tabla de jugadores --
     )
+--Hemos pensado en hacer una tabla para la configuracion del juego, como el sonido etc....... --
+Create table configuracion(
+    id INT PRIMARY KEY;
+    sonido BOOLEA;
+    id_jugadordos NT;
+    FOREIGN KEY  (id_jugadordos) REFERENCES jugadores -- esta seria otra FK el nombre es diferente para poder dferenciarse entre ellas --
+)
+
+-- de momento hay una tabla puntuaciones, configuracio, jugadores (usuarios) nombre correo contraseña 
