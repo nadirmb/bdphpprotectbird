@@ -1,0 +1,4 @@
+-- Primero creareoms la base de datos de protect bird --
+-- de momento solo estamos probando diferentes soluciones para poder--
+-- relacionar bien las tablas entre ellas--
+-- primero crearemos la base de datos de protect bird--
