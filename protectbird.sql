@@ -15,3 +15,11 @@ Create Table jugadores (
     contraseña VARCHAR(40),
     -- hemos pensado en la contraseña ponerla en esta table tambien--
     )
+    -- Crearemos tambien una tabla para las puntuaciones para que cada vez que haga una nueva puntuacion se guarde --
+Create Table puntuaciones (
+    id INT PRIMARY KEY,
+    puntuacion INT,
+    id_jugador INT,
+    FOREIGN KEY  (id_jugador) REFERENCES jugadores -- esta seria la relacion que hay entre la tabla de puntuaciones 
+    -- y jugadores ya que cada puntuacion tiene que ir relacionada con la tabla de jugadores --
+    )
