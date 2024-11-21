@@ -37,7 +37,7 @@ Create table configuracion(
 CREATE UNIQUE INDEX idx_correo ON jugadores(correo);
 
 -- indice para mejorar consultas por jugador en puntuaciones
-CREATE INDEX idx_puntuaciones_jugador ON puntuaciones(jugador_id);
+CREATE INDEX idx_puntuaciones_jugador ON puntuaciones(id_jugadordos);
 
 --indice para búsquedas rapidas en configuracion por el jugador
-CREATE INDEX idx_configuracion_jugador ON configuracion(jugador_id);
+CREATE INDEX idx_configuracion_jugador ON configuracion(id_jugadordos);
