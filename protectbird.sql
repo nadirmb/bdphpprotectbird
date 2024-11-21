@@ -34,7 +34,10 @@ Create table configuracion(
 -- de momento hay una tabla puntuaciones, configuracion, jugadores nombre correo contraseña 
 -- Nos gustaria hacer indices para mejorar el rendimiento y que las busqueadas sean mas rapidas--
 --indice para que la busqueda por correo sea aun mas rapida
-CRETAE UNIQUE INDEX idx_correo ON jugadores(correo);
+CREATE UNIQUE INDEX idx_correo ON jugadores(correo);
 
 -- indice para mejorar consultas por jugador en puntuaciones
-CRETAE INDEX idx_puntuaciones_jugador ON puntuaciones(jugador_id);
+CREATE INDEX idx_puntuaciones_jugador ON puntuaciones(jugador_id);
+
+--indice para búsquedas rapidas en configuracion por el jugador
+CREATE INDEX idx_configuracion_jugador ON configuracion(jugador_id);
