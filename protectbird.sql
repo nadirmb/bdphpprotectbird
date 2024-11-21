@@ -31,7 +31,10 @@ Create table configuracion(
     FOREIGN KEY  (id_jugadordos) REFERENCES jugadores -- esta seria otra FK el nombre es diferente para poder dferenciarse entre ellas --
 )
 
--- de momento hay una tabla puntuaciones, configuracio, jugadores (usuarios) nombre correo contraseña 
+-- de momento hay una tabla puntuaciones, configuracion, jugadores nombre correo contraseña 
 -- Nos gustaria hacer indices para mejorar el rendimiento y que las busqueadas sean mas rapidas--
 --indice para que la busqueda por correo sea aun mas rapida
 CRETAE UNIQUE INDEX idx_correo ON jugadores(correo);
+
+-- indice para mejorar consultas por jugador en puntuaciones
+CRETAE INDEX idx_puntuaciones_jugador ON puntuaciones(jugador_id);
