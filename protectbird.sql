@@ -25,9 +25,9 @@ Create Table puntuaciones (
     )
 --Hemos pensado en hacer una tabla para la configuracion del juego, como el sonido etc....... --
 Create table configuracion(
-    id INT PRIMARY KEY;
-    sonido BOOLEAN;
-    id_jugadordos INT;
+    id INT PRIMARY KEY,
+    sonido BOOLEAN,
+    id_jugadordos INT,
     FOREIGN KEY  (id_jugadordos) REFERENCES jugadores -- esta seria otra FK el nombre es diferente para poder dferenciarse entre ellas --
 )
 
