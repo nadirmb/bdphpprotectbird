@@ -19,4 +19,4 @@ $stmt->execute();
 // para recibir datos del formulario
 $nombre = $_POST['nombre'];
 $correo = $_POST['correo'];
-$contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT); // encriptar la contraseña, asin hay mas seguridad
+$contraseña = password_hash($_POST['contraseña'], PASSWORD_DEFAULT); // encriptar la contraseña, asin hay mas seguridad en nuestra pagina
