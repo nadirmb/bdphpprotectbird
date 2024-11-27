@@ -12,3 +12,6 @@ $stmt = $pdo->prepare($sql);
 $stmt->bindParam(':nombre', $nombre);
 $stmt->bindParam(':correo', $correo);
 $stmt->bindParam(':contraseña', $contraseña);
+
+// Ejecutar la consulta
+ $stmt->execute();
