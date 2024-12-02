@@ -13,4 +13,10 @@ if (isset($_POST['id_jugador']) && isset($_POST['puntuacion'])) {
 $sql = "INSERT INTO puntuaciones (jugador_id, puntuacion) VALUES (?, ?)";
 $stmt = $conn->prepare($sql);
 $stmt->bind_param($id_jugador, $puntuacion); // por seguridad utilizaremos bind_param 
+
+if ($stmt->execute()) {
+    echo "Puntuación agregada correctamente.";
+} else {
+    echo "Error al agregar la puntuación: " . $conn->error;
+}
 }
