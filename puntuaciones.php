@@ -20,3 +20,7 @@ if ($stmt->execute()) {
     echo "Error al agregar la puntuación: " . $conn->error;
 }
 }
+
+// cerrar la conexion a la base de datos al final 
+$conn->close();
+?>
