@@ -17,10 +17,10 @@ Create Table jugadores (
     )
     -- Crearemos tambien una tabla para las puntuaciones para que cada vez que haga una nueva puntuacion se guarde --
 Create Table puntuaciones (
-    id INT PRIMARY KEY,
-    puntuacion INT,
-    id_jugador INT,
-    FOREIGN KEY  (id_jugador) REFERENCES jugadores -- esta seria la relacion que hay entre la tabla de puntuaciones 
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    puntuacion INT NOT NULL,
+    id_jugador INT NOT NULL,
+    FOREIGN KEY (id_jugador) REFERENCES jugadores(id) ON DELETE CASCADE  -- esta seria la relacion que hay entre la tabla de puntuaciones 
     -- y jugadores ya que cada puntuacion tiene que ir relacionada con la tabla de jugadores --
     )
 --Hemos pensado en hacer una tabla para la configuracion del juego, como el sonido etc....... --
