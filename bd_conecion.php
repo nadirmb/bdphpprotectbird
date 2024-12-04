@@ -33,4 +33,11 @@ $pass_hashed = password_hash($pass, PASSWORD_DEFAULT);
 //consulta para insertar datos en la tabla jugadores
 $stmt = $conn->prepare("INSERT INTO jugadores (nombre, correo, contraseña) VALUES (?, ?, ?)");
 $stmt->bind_param("sss", $user, $email, $pass_hashed);
+
+// Ejecutar la consulta y verificar si todo salio bien
+if ($stmt->execute()) {
+    echo "Se ha registrado correctamente!!!"; // Mensaje de confirmación de registro
+} else {
+    echo "Error: " . $stmt->error; // Mostrar mensaje de error si algo falla
+}
 ?>
