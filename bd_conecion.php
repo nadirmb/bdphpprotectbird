@@ -27,5 +27,7 @@ if ($pass != $confirm_pass) {
     echo "Las contraseñas no coinciden. Por favor, intentalo de nuevo.";
     exit(); // Detener el script si las contraseñas no coinciden
 }
+// Encriptar la contraseña para mayor seguridad
+$pass_hashed = password_hash($pass, PASSWORD_DEFAULT);
 
 ?>
