@@ -21,4 +21,11 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST['email']; // correo electrónico
     $pass = $_POST['password']; // contraseña
     $confirm_pass = $_POST['confirm_password']; // esto sera la confirmacion de la contraseña
+    
+// verificar si las contraseñas coinciden
+if ($pass != $confirm_pass) {
+    echo "Las contraseñas no coinciden. Por favor, intentalo de nuevo.";
+    exit(); // Detener el script si las contraseñas no coinciden
+}
+
 ?>
