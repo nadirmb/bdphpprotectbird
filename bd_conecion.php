@@ -30,4 +30,7 @@ if ($pass != $confirm_pass) {
 // Encriptar la contraseña para mayor seguridad
 $pass_hashed = password_hash($pass, PASSWORD_DEFAULT);
 
+//conynlta para insertar datos en la tabla jugadores
+$stmt = $conn->prepare("INSERT INTO jugadores (nombre, correo, contraseña) VALUES (?, ?, ?)");
+$stmt->bind_param("sss", $user, $email, $pass_hashed);
 ?>
