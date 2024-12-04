@@ -9,10 +9,10 @@ Use protect_bird_db;
 -- jugadores son los que juegan al juego, entonces las relaciones como lo que son las puntuaciones --
 -- y la configuracion tendria que ir relacionada con una FK a la tabla de jugadores --
 Create Table jugadores (
-    id INT PRIMARY KEY,
-    nombre VARCHAR(55),
-    correo VARCHAR(30), 
-    contraseña VARCHAR(40),
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(55) NOT NULL,
+    correo VARCHAR(30)UNIQUE NOT NULL, 
+    contraseña VARCHAR(40)NOT NULL,
     -- hemos pensado en la contraseña ponerla en esta table tambien--
     )
     -- Crearemos tambien una tabla para las puntuaciones para que cada vez que haga una nueva puntuacion se guarde --
