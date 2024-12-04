@@ -40,6 +40,6 @@ if ($stmt->execute()) {
 } else {
     echo "Error: " . $stmt->error; // Mostrar mensaje de error si algo falla
 }
-// Cerrar la contulta
-  $stmt->close();
+//Cerrar la consulta
+$stmt->close();
 ?>
