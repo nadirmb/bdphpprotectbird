@@ -14,4 +14,11 @@ if ($conn→connect_error) {
 } else {
     echo "Conexión exitosa a la base de datos."; // Confirmacio!!!!! de conexión exitosa
 }
+//tendremos que verificar que el formulario fue enviado
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    // recoger los datos enviados desde el formulario
+    $user = $_POST['username']; // nombre de usuario
+    $email = $_POST['email']; // correo electrónico
+    $pass = $_POST['password']; // contraseña
+    $confirm_pass = $_POST['confirm_password']; // esto sera la confirmacion de la contraseña
 ?>
