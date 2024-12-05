@@ -9,7 +9,7 @@ $dbname = "protect_bird_db"; // aqui ponemos el nombre de la base de datos
 $conn = new mysqli($host, $user, $password, $dbname);
 
 // comprobar que la conexion es correcta
-if ($conn→connect_error) {
+if ($conn->connect_error) {
     die("Error de conexión: ". $conn→connect_error); //esto mostrara un mensaje de error si la conexion falla
 } else {
     echo "Conexión exitosa a la base de datos."; // Confirmacio!!!!! de conexión exitosa
