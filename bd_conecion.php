@@ -43,6 +43,8 @@ if ($pass != $confirm_pass) {
     } else {
         echo "Error: " . $stmt->error; // Mostrar mensaje de error si algo falla
     }
+    header("Location:https://localhost/Programacion-JS-para-ProtectBird-main/html/iniciarsesion.html");
+    
     
 //Cerrar la consulta
     $stmt->close();
