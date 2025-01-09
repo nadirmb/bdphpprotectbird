@@ -1,0 +1,44 @@
+/* Estilos del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../img/fondobird.jpg');
+    display: flex;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: bottom;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Estilos del encabezado principal */
+h1 {
+    color: #ffffff;
+    text-align: center;
+    font-size: 250%;
+}
+
+.contenedor {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.botoninicio {
+    padding: 15px 30px;
+    font-size: 24px; 
+    background-color: rgba(255, 255, 255, 0.8); 
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    margin-top: 15%;
+    transition: background-color 0.3s, transform 0.3s;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+.botoninicio:hover {
+    background-color: rgba(255, 255, 255, 1);
+}

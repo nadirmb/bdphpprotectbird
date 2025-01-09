@@ -1,0 +1,79 @@
+/* Importación de fuentes personalizadas: silkscreen */
+@import url('../tipografia/silkscreen/slkscr.ttf');
+
+/* Estilos generales del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: rgb(238, 238, 238);
+    color: #000000;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Estilos del contenedor principal */
+.container {
+    width: 100%;
+    max-width: 38%;
+    margin: 0 auto;
+    padding: 4em 0;
+    text-align: justify;
+    font-size: 1rem;
+}
+
+/* Estilos del encabezado principal */
+h1 {
+    font-size: 2em;
+    text-align: center;
+    color: #111;
+    margin-bottom: 1em;
+    padding-left: 1%;
+    font-family: 'SILKSCREEN', sans-serif;
+}
+
+/* Estilos de los encabezados secundarios */
+h2 {
+    font-family: 'SILKSCREEN', sans-serif;
+    font-size: 1.3em;
+    color: #285741;
+    text-align: left;
+    margin-top: 1.5em;
+    padding-bottom: 0.2em;
+    border-bottom: 0.15em solid rgb(63, 38, 38);
+}
+
+/* Estilos para la fecha de última actualización */
+.last-updated {
+    font-style: italic;
+    color: #666;
+}
+
+/* Estilos del botón de volver */
+.boton-volver {
+    display: inline-block;
+    padding: 1.1em 1.8em;
+    background-color: #00a8ff;
+    color: white;
+    text-decoration: none;
+    border: none;
+    border-radius: 3%;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    text-align: center;
+    margin-top: 2em;
+    margin-bottom: 2em;
+}
+
+/* Estilos del botón de volver al pasar el cursor */
+.boton-volver:hover {
+    background-color: #0077cc;
+}
+
+/* Estilos del contenedor del botón */
+.button-container {
+    text-align: center;
+}
+

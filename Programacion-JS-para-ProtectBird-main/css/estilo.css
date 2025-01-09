@@ -1,0 +1,88 @@
+/* Importación de fuentes personalizadas: silkscreen y lexend */
+@import url('../tipografia/silkscreen/slkscr.ttf');
+@import url('../tipografia/lexend/Lexend-VariableFont_wght.ttf');
+
+/* Estilo para el contenedor principal */
+.contenedor {
+    margin: auto;
+    overflow: hidden;
+    padding: 2%;
+    width: 90%;
+}
+
+/* Estilos para los encabezados h1 */
+h1 {
+    font-size: 1.1em;
+    text-justify: inter-word;
+    max-width: 80%;
+    text-align: justify;
+    margin: 2% auto;
+    padding: 1% 0;
+    font-size: 1.5em;
+}
+
+/* Estilos generales para el body */
+body {
+    font-family: 'Lexend', sans-serif;
+    margin: 0;
+    padding: 0;
+    line-height: 1.4;
+    background-image: url("../img/fondo.jpeg");
+    color: white;
+    background-size: cover;
+    background-repeat: no-repeat; 
+    background-attachment: fixed;
+}
+
+/* Estilo para la clase 'ow' */
+.ow {
+    text-align: center;
+    font-family: 'SILKSCREEN', sans-serif;
+    font-size: 1.5em;
+}
+
+/* Estilos para el contenedor de imágenes rotativas */
+#imagenes-rotativas {
+    position: relative;
+    height: 50vh;
+    width: 50%; 
+    margin: 0 auto;
+    border: 0.35em solid rgb(255, 255, 255);
+}
+
+/* Estilos para cada imagen rotativa*/
+.imagen-rotativa {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    opacity: 0;
+    transition: opacity 1s ease-in-out;
+}
+
+/* Estilo para la imagen activa en la rotación*/
+.imagen-rotativa.active {
+    opacity: 1;
+}
+
+/* Estilos para la sección del video promocional */
+#video-promocional {
+    padding: 4%;
+    margin: 3% 5%;
+}
+
+/* Estilos para el contenedor del video */
+.video-container {
+    width: 65%;
+    max-width: 80%;
+    margin: 0 auto;
+}
+
+/* Estilos para el elemento de video */
+.video-container video {
+    width: 100%;
+    height: auto;
+}
+

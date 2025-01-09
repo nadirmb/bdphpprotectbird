@@ -1,0 +1,72 @@
+/* Importación de fuentes personalizadas: silkscreen */
+@import url('../tipografia/silkscreen/slkscr.ttf');
+
+/* Estilos generales del cuerpo de la página */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    background-image: url("../img/fondo.jpeg");
+}
+
+/* Estilos del contenedor principal */
+.contenedor {
+    width: 80%;
+    margin: auto;
+    overflow: hidden;
+    padding: 2%;
+    color: white;
+    margin-top: 0em;
+    margin-bottom: 0em;
+}
+
+/* Estilos de la sección de bienvenida */
+.welcome {
+    background-color: #333;
+    color: #fff;
+    padding: 2%;
+}
+
+/* Estilos de la sección de imágenes */
+.seccion_img {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+}
+
+/* Estilos de las imágenes miniatura */
+.mini_imagen {
+    text-align: center;
+    width: 30%;
+}
+
+.mini_imagen img {
+    width: 100%;
+    border: 0.3em solid #fff;
+    box-shadow: 0 0 1em rgba(0,0,0,0.1);
+}
+
+/* Estilos de la sección de horario */
+.horario {
+    background-color: #333;
+    color: #fff;
+    padding: 1.5%;
+    margin-top: 3%;
+}
+
+/* Estilos de la sección de ubicación */
+.ubi {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3%;
+}
+
+/* Estilos del mapa */
+.mapa {
+    background-image: url('../img/mapa.png');
+    height: 25em;
+    width: 50%;
+    border: 0.2em solid #00a8ff;
+}
+

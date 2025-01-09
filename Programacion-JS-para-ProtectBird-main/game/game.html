@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>ProtectBird</title>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/gameestilo.css">
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+</head>
+<body>
+    <header>
+        <nav>
+            <a href="../html/paginaweb.html"><img src="../img/logo.png" id="logo"></a>
+            <ul class="nav-links">
+                <li><a href="#"><strong>JUEGA YA</strong></a></li>
+                <li><a href="../html/birdcenter.html"><strong>BIRDCENTER</strong></a></li>
+                <li class="desplegable">
+                    <a><strong>MAS</strong></a>
+                    <ul>
+                        <li><a href="../html/registrate.html"><strong>REGISTRATE</strong></a></li>
+                        <li><a href="../html/iniciarsesion.html"><strong>INICIAR SESION</strong></a></li>
+                    </ul>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <h1>¡Juega a ProtectBird!</h1>
+    <main class="contenedor">
+        
+      <button class="botoninicio" onclick="iniciarGame()">
+            <h3>¡Jugar!</h3>
+        </button>  
+        <canvas id="gameCanvas" width="1960" height="600"></canvas>
+        <br>
+        <script src="../js/game.js"></script>
+    
+    </main>
+
+    <footer class="globalfooter">
+        <div class="footer-content">
+            <div class="terminos">
+                <h2>Información Legal</h2>
+                <a href="../html/terminos.html">Términos y Condiciones</a>
+                <a href="../html/privacidad.html">Política de Privacidad</a>
+            </div>
+
+            <div class="contacto">
+                <h2>Contáctanos</h2>
+                <p>Email: <a href="mailto:protectbird8@gmail.com">protectbird8@gmail.com</a></p>
+                <p>Teléfono: <a href="tel:+34623487701">623-487-701</a></p>
+            </div>    
+
+            <div class="redes-sociales">
+                <h2>Síguenos</h2>
+                <div class="redes-sociales-icons">
+                    <a href="https://www.reddit.com/user/NoCarob8347/" target="_blank">
+                        <img src="../img/redditicon.png" class="redes" alt="Reddit">
+                    </a>
+                    <a href="https://www.instagram.com/protectbird_/" target="_blank">
+                        <img src="../img/instaicon.png" class="redes" alt="Instagram">
+                    </a>
+                    <a href="https://x.com/ProtectBird_" target="_blank">
+                        <img src="../img/xicon.png" class="redes" alt="Twitter">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="copyright">
+            Copyright © 2024 Protect Bird - All rights reserved
+        </div>
+    </footer>
+</body>
+</html>
