@@ -29,7 +29,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $row = $result->fetch_assoc(); // obtnemos los datos del usuario desde la base de datos
     if (password_verify($pass, $row['contraseña'])) { // comprobar si la contraseña que se ha puesto coincide con la guarada
         $_SESSION['username'] = $user; // guarda el nombre de usuario en la sesión para identificar al usuario
-        header("Location: paginared.php"); // Redirige al usuario a la página paginared.php(es la pagina que se redigira) después de iniciar sesion
+        header("Location:https://localhost/Programacion-JS-para-ProtectBird-main/php/paginared.php"); // Redirige al usuario a la página paginared.php(es la pagina que se redigira) después de iniciar sesion
     } else {
         echo "Contraseña incorrecta."; 
     }
