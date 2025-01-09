@@ -7,3 +7,8 @@ if (!isset($_SESSION['username'])) {
     header("Location:https://localhost/Programacion-JS-para-ProtectBird-main/html/iniciarsesion.html");
     exit();
 }
+// mostrar el nombre del usuario que ha iniciado sesión
+echo "Bienvenido, " . $_SESSION['username'] . "!";
+?>
+
+<a href="../php/cerrarsesion.php">Cerrar sesión</a> 
