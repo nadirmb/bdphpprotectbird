@@ -18,3 +18,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error de conexión: " . $conn->connect_error);
     
 }
+// consultar si el nombre de usuario existe en la base de datos
+  $stmt = $conn->prepare("SELECT * FROM jugadores WHERE nombre = ?");
+  $stmt->bind_param("s", $user); // 's' es para decir que es string
+  $stmt->execute();
+  $result = $stmt->get_result();
+
