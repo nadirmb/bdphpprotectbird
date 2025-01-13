@@ -1,9 +1,10 @@
 <?php
 session_start();
 
-// verificamos si el usuario ha iniciado sesion
+// verificamos si el usuario ha iniciado sesion sino le decimos que inice sesion
 if (!isset($_SESSION['username'])) {
-    exit("Debe iniciar sesión para guardar la puntuación."); // si no hay un usuario en la sesion se mostrara un mensaje y lo termina
+    echo "Debe iniciar sesión para guardar la puntuación."; // si no hay un usuario en la sesion se mostrara un mensaje 
+    exit(); // detenmos el código aquí si no está logueado
 }
 
 // verificamos si la petición es POST
@@ -35,3 +36,4 @@ $stmt->bind_param("s", $username); // pasamos el nombre del usuario para buscarl
 $stmt->execute(); // ejecutamos la conuslta
 $result = $stmt->get_result(); // sacamos los resultados de la consulta
 $data = $result->fetch_assoc(); // converitmos los resultados en un array para trabajar más fácil con ellos
+
