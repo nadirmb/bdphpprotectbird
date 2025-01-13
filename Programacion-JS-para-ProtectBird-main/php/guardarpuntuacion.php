@@ -29,7 +29,7 @@ $query = "
     WHERE j.nombre = ?"; // queremos obtener el ID del jugador y la maximaa puntuación registrada de ese jugador
     // Usamos LEFT JOIN para incluir jugadores incluso si no tienen puntuaciones.
 
-// preparamos la consulta para evitar problemas como inyecciones SQL
+// preparamos la consulta para evitar problemas como inyecciones sql donde un usuario con malas intenciones podría intentar ejecutar comandos dañinos en la base de datos.
 $stmt = $conn->prepare($query); 
 $stmt->bind_param("s", $username); // pasamos el nombre del usuario para buscarlo en la base de datos
 $stmt->execute(); // ejecutamos la conuslta
