@@ -20,3 +20,10 @@ $conn = new mysqli("localhost", "root", "", "protect_bird_db"); // hacemoes la c
 if ($conn->connect_error) { // comprobamos si hay un error al conectar
     exit("Error de conexión: " . $conn->connect_error); //entonces sii hay error mostramos el mensaje y detenemos la ejecución
 }
+
+// hacemos una consulta SQL para obtener el ID del jugador y su puntuación máxima
+$query = "
+    SELECT j.id, MAX(p.puntuacion) AS max_puntuacion
+    FROM jugadores j
+    LEFT JOIN puntuaciones p ON j.id = p.id_jugador
+    WHERE j.nombre = ?"; // queremos obtener el ID del jugador y la maximaa puntuación registrada de ese jugador
