@@ -25,5 +25,13 @@ if ($conn->connect_error) { // comprobamos si hay un error al conectar
 $query = "
     SELECT j.id, MAX(p.puntuacion) AS max_puntuacion
     FROM jugadores j
-    LEFT JOIN puntuaciones p ON j.id = p.id_jugador
+    LEFT JOIN puntuaciones p ON j.id = p.id_jugador 
     WHERE j.nombre = ?"; // queremos obtener el ID del jugador y la maximaa puntuación registrada de ese jugador
+    // Usamos LEFT JOIN para incluir jugadores incluso si no tienen puntuaciones.
+
+// preparamos la consulta para evitar problemas como inyecciones SQL
+$stmt = $conn->prepare($query); 
+$stmt->bind_param("s", $username); // pasamos el nombre del usuario para buscarlo en la base de datos
+$stmt->execute(); // ejecutamos la conuslta
+$result = $stmt->get_result(); // sacamos los resultados de la consulta
+$data = $result->fetch_assoc(); // converitmos los resultados en un array para trabajar más fácil con ellos
