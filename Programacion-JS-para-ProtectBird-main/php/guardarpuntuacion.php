@@ -14,3 +14,9 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 // recibimos los datos enviados desde el formulario
 $puntuacionNueva = intval($_POST['puntuacion']); // usamos el intval ya que con esto convertimos la puntuación recibida en un número entero y nos asseguramos que los datos se han manejadoo corectament
 $username = $_SESSION['username']; // recuperramos el nombre de usuario desde la sesion
+
+// Conectamos a la base de datos
+$conn = new mysqli("localhost", "root", "", "protect_bird_db"); // hacemoes la conexion con la base de datos
+if ($conn->connect_error) { // comprobamos si hay un error al conectar
+    exit("Error de conexión: " . $conn->connect_error); //entonces sii hay error mostramos el mensaje y detenemos la ejecución
+}
