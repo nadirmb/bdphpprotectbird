@@ -8,13 +8,10 @@ if (!isset($_SESSION['username'])) {
 }
 
 // verificamos si la petición es POST
-if ($_SERVER["REQUEST_METHOD"] !== "POST") {
-    exit("El metodo no es permitido."); // si no es una peticion POST se muestra un mensaje de error y termina la ejecuiion
-}
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    $puntuacion_nueva = intval($_POST['puntuacion']); // usamos el intval ya que con esto convertimos la puntuación recibida en un número entero y nos asseguramos que los datos se han manejadoo corectament
+    $username = $_SESSION['username']; // recuperramos el nombre de usuario desde la sesion
 
-// recibimos los datos enviados desde el formulario
-$puntuacionNueva = intval($_POST['puntuacion']); // usamos el intval ya que con esto convertimos la puntuación recibida en un número entero y nos asseguramos que los datos se han manejadoo corectament
-$username = $_SESSION['username']; // recuperramos el nombre de usuario desde la sesion
 
 // Conectamos a la base de datos. 
     $host = "localhost"; // el servidordonde está la base de datos
@@ -27,6 +24,7 @@ $username = $_SESSION['username']; // recuperramos el nombre de usuario desde la
     if ($conn->connect_error) {
         die("Error de conexión: " . $conn->connect_error); //mostramos mensaje si hay error al conectarse
     }
+
 
 // preparamos la consulta para evitar problemas como inyecciones sql donde un usuario con malas intenciones podría intentar ejecutar comandos dañinos en la base de datos.
 $stmt = $conn->prepare("SELECT id FROM jugadores WHERE nombre = ?");
@@ -68,9 +66,23 @@ $max_puntuacion = intval($row['max_puntuacion']); // guardamos la puntuación m�
 // comprobamos si la nueva puntuacion es mayor que la actual
 if ($puntuacion_nueva > $max_puntuacion) {
    // si el jugador obtiene una nueva puntuación que es mayor que la maxima puntuacion que ya tiene registrada en la base de datos entonces esa nueva puntuación se guardara en la base de datos    
-   $stmt = $conn->prepare("INSERT INTO puntuaciones (puntuacion, id_jugador) VALUES (?, ?)") // preparamos la consulta para insertar los datos
-    $stmt->bind_param("ii", $puntuacion_nueva, $id_jugador) //pasamos la nueva puntuacion y el id del jugador y con el ii nos asseguramos que los datos pasados como parametros son enteros
+    $stmt = $conn->prepare("INSERT INTO puntuaciones (puntuacion, id_jugador) VALUES (?, ?)"); // preparamos la consulta para insertar los datos
+    $stmt->bind_param("ii", $puntuacion_nueva, $id_jugador); //pasamos la nueva puntuacion y el id del jugador y con el ii nos asseguramos que los datos pasados como parametros son enteros
+}
+// ejecutamos la consulta para guardar la nueva puntuacion
+if ($stmt->execute()) {
+    echo "Nueva puntuación guardada:". $puntuacion_nueva; // si se ha guardado correctamente mostramos un mensaje
+} else {
+     echo "Error al guardar la puntuación: ". $stmt->error; // si ha habidoo un error al guardar mostramos el error
 }
 
+// si la nueva puntuacion no es mas alta mostramos un mensaje
+} else {
+    echo "No se guarda la puntuación porque no supera la puntuación más alta:" . $max_puntuacion;
+}
+
+// si no encontramos al usuario mostramos un mensaje de error
+} else {
+    echo  "Error: usuario no encontrado.";
 
 }
