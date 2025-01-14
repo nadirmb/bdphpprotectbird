@@ -86,3 +86,9 @@ if ($stmt->execute()) {
     echo  "Error: usuario no encontrado.";
 
 }
+// Cerrar la conexión
+$stmt->close();
+$conn->close();
+echo "Método no permitido.";
+
+?>
