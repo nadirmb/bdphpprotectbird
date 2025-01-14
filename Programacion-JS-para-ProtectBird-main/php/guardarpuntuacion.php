@@ -34,12 +34,37 @@ $stmt->bind_param("s", $username); // pasamos el nombre del usuario para buscarl
 $stmt->execute(); // ejecutamos la conuslta
 $result = $stmt->get_result(); // sacamos los resultados de la consulta
 
-// aqui estamos revisando si la consulta ha traido algún resultado, es decir, si encontramos un usuario con ese nombre.
+// aqui estamos revisando si la consulta ha traido algún resultado es decir si encontramos un usuario con ese nombre
 if ($result->num_rows > 0) {
-    // si encontramos el usuario, usamos fetch_assoc() para traer los datos de ese usuario en forma de arreglo.
+    // si encontramos el usuario usamos fetch_assoc() para traer los datos de ese usuario
     $row = $result->fetch_assoc();
     
-    // cojemos el id que está en la fila que nos devolvió la consulta y lo guardamos en la variable $id_jugador.
-    // este id es lo que nos sirve para identificar a ese jugador en la base de datos.
+    // cojemos el id que está en la fila que nos devolvió la consulta y lo guardamos en la variable $id_jugador
+    // este id es lo que nos sirve para identificar a ese jugador en la base de datos
     $id_jugador = $row['id'];
+    
+ // ahora buscamos la puntuación más alta que tiene el jugador
+$stmt = $conn->prepare("SELECT MAX(puntuacion) AS max_puntuacion FROM puntuaciones WHERE id_jugador = ?");
+// aquí estamos preparando una consulta SQL para obtener la puntuación más alta que tiene un jugador específico en la tabla puntuaciones
+// usamos la función MAXpuntuacion que nos da el valor más alto de la columna puntuacion de la base de datos para un jugador
+
+$stmt->bind_param("i", $id_jugador); // le pasamos el id del jugador
+// estamos pasando el id del jugador que hemos guardado en la variable $id_jugador a la consulta
+// el i significa que vamos a pasar un valor entero
+
+$stmt->execute(); // ejecutamos la consulta
+// es cuando el programa va a buscar la puntuación mas alta del jugador en la base de datos
+
+$result = $stmt->get_result(); // obtenemos el resultado de la consulta
+
+$row = $result->fetch_assoc(); // obtenemos los datos y con fetch_assoc() obtenemos una fila del resultado
+// esta fila es como un array donde las claves son los nombres de las columnas de la base de datos y los valores son los datos que recuperamos de esas columnas
+
+$max_puntuacion = intval($row['max_puntuacion']); // guardamos la puntuación más alta
+// ahora estamos cogiendo el valor de la columna max_puntuacion de la fila que obtuvimos antes y lo guardamos en la variable $max_puntuacion pero antes de guardarlo usamos intval para asegurarnos de que el valor sea un número entero
+// esto es importante porque si la base de datos devuelve un valor como un texto o un valor NULL intval lo convertira en un numero entero
+// si el valor no se puede convertir intval lo pondrá a 0, asin se puede evitar errores más adelante en el código
+
+
+
 }
