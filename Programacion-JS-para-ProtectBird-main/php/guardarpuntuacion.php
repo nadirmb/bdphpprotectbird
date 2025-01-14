@@ -29,9 +29,17 @@ $username = $_SESSION['username']; // recuperramos el nombre de usuario desde la
     }
 
 // preparamos la consulta para evitar problemas como inyecciones sql donde un usuario con malas intenciones podría intentar ejecutar comandos dañinos en la base de datos.
-$stmt = $conn->prepare($query); 
+$stmt = $conn->prepare("SELECT id FROM jugadores WHERE nombre = ?");
 $stmt->bind_param("s", $username); // pasamos el nombre del usuario para buscarlo en la base de datos
 $stmt->execute(); // ejecutamos la conuslta
 $result = $stmt->get_result(); // sacamos los resultados de la consulta
-$data = $result->fetch_assoc(); // converitmos los resultados en un array para trabajar más fácil con ellos
 
+// aqui estamos revisando si la consulta ha traido algún resultado, es decir, si encontramos un usuario con ese nombre.
+if ($result->num_rows > 0) {
+    // si encontramos el usuario, usamos fetch_assoc() para traer los datos de ese usuario en forma de arreglo.
+    $row = $result->fetch_assoc();
+    
+    // cojemos el id que está en la fila que nos devolvió la consulta y lo guardamos en la variable $id_jugador.
+    // este id es lo que nos sirve para identificar a ese jugador en la base de datos.
+    $id_jugador = $row['id'];
+}
