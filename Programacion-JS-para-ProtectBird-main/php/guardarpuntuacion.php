@@ -63,8 +63,14 @@ $row = $result->fetch_assoc(); // obtenemos los datos y con fetch_assoc() obtene
 $max_puntuacion = intval($row['max_puntuacion']); // guardamos la puntuación más alta
 // ahora estamos cogiendo el valor de la columna max_puntuacion de la fila que obtuvimos antes y lo guardamos en la variable $max_puntuacion pero antes de guardarlo usamos intval para asegurarnos de que el valor sea un número entero
 // esto es importante porque si la base de datos devuelve un valor como un texto o un valor NULL intval lo convertira en un numero entero
-// si el valor no se puede convertir intval lo pondrá a 0, asin se puede evitar errores más adelante en el código
+// si el valor no se puede convertir intval lo pondra a 0 asin se puede evitar errores más adelante en el código
 
+// comprobamos si la nueva puntuacion es mayor que la actual
+if ($puntuacion_nueva > $max_puntuacion) {
+   // si el jugador obtiene una nueva puntuación que es mayor que la maxima puntuacion que ya tiene registrada en la base de datos entonces esa nueva puntuación se guardara en la base de datos    
+   $stmt = $conn->prepare("INSERT INTO puntuaciones (puntuacion, id_jugador) VALUES (?, ?)") // preparamos la consulta para insertar los datos
+    $stmt->bind_param("ii", $puntuacion_nueva, $id_jugador) //pasamos la nueva puntuacion y el id del jugador y con el ii nos asseguramos que los datos pasados como parametros son enteros
+}
 
 
 }
