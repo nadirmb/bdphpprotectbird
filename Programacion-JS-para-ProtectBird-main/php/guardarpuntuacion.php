@@ -67,7 +67,7 @@ if ($puntuacion_nueva > $max_puntuacion) {
    // si el jugador obtiene una nueva puntuación que es mayor que la maxima puntuacion que ya tiene registrada en la base de datos entonces esa nueva puntuación se guardara en la base de datos    
     $stmt = $conn->prepare("INSERT INTO puntuaciones (puntuacion, id_jugador) VALUES (?, ?)"); // preparamos la consulta para insertar los datos
     $stmt->bind_param("ii", $puntuacion_nueva, $id_jugador); //pasamos la nueva puntuacion y el id del jugador y con el ii nos asseguramos que los datos pasados como parametros son enteros
-}
+
 // ejecutamos la consulta para guardar la nueva puntuacion
 if ($stmt->execute()) {
     echo "Nueva puntuación guardada:". $puntuacion_nueva; // si se ha guardado correctamente mostramos un mensaje
