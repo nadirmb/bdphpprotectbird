@@ -16,19 +16,17 @@ if ($_SERVER["REQUEST_METHOD"] !== "POST") {
 $puntuacionNueva = intval($_POST['puntuacion']); // usamos el intval ya que con esto convertimos la puntuación recibida en un número entero y nos asseguramos que los datos se han manejadoo corectament
 $username = $_SESSION['username']; // recuperramos el nombre de usuario desde la sesion
 
-// Conectamos a la base de datos
-$conn = new mysqli("localhost", "root", "", "protect_bird_db"); // hacemoes la conexion con la base de datos
-if ($conn->connect_error) { // comprobamos si hay un error al conectar
-    exit("Error de conexión: " . $conn->connect_error); //entonces sii hay error mostramos el mensaje y detenemos la ejecución
-}
+// Conectamos a la base de datos. 
+    $host = "localhost"; // el servidordonde está la base de datos
+    $user = "root"; // el usuario de la base de datos
+    $password = ""; // la contraseña 
+    $dbname = "protect_bird_db"; // el nombre de la base de datos
+    $conn = new mysqli($host, $user, $password, $dbname); // creamos la conexión
 
-// hacemos una consulta SQL para obtener el ID del jugador y su puntuación máxima
-$query = "
-    SELECT j.id, MAX(p.puntuacion) AS max_puntuacion
-    FROM jugadores j
-    LEFT JOIN puntuaciones p ON j.id = p.id_jugador 
-    WHERE j.nombre = ?"; // queremos obtener el ID del jugador y la maximaa puntuación registrada de ese jugador
-    // Usamos LEFT JOIN para incluir jugadores incluso si no tienen puntuaciones.
+    // si no podemos conectarnos mostramos el error y terminamos el script
+    if ($conn->connect_error) {
+        die("Error de conexión: " . $conn->connect_error); //mostramos mensaje si hay error al conectarse
+    }
 
 // preparamos la consulta para evitar problemas como inyecciones sql donde un usuario con malas intenciones podría intentar ejecutar comandos dañinos en la base de datos.
 $stmt = $conn->prepare($query); 
