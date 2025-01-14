@@ -25,7 +25,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         die("Error de conexión: " . $conn->connect_error); //mostramos mensaje si hay error al conectarse
     }
 
-
 // preparamos la consulta para evitar problemas como inyecciones sql donde un usuario con malas intenciones podría intentar ejecutar comandos dañinos en la base de datos.
 $stmt = $conn->prepare("SELECT id FROM jugadores WHERE nombre = ?");
 $stmt->bind_param("s", $username); // pasamos el nombre del usuario para buscarlo en la base de datos
@@ -86,9 +85,9 @@ if ($stmt->execute()) {
     echo  "Error: usuario no encontrado.";
 
 }
-    // Cerrar la conexión
-    $stmt->close();
-    $conn->close();
+// Cerrar la conexión
+$stmt->close();
+$conn->close();
 } else {
     // Este else es para cuando no se usa el método POST
     echo "Método no permitido.";
