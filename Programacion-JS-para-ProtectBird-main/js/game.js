@@ -125,42 +125,41 @@ function tuboColisiones() {
 
         
         if (colisionHorizontal && (colisionSuperior || colisionInferior)) {
-                        // Para mandar la puntuacion al servidor con un post
-                        fetch('https://localhost/Programacion-JS-para-ProtectBird-main/php/guardarpuntuacion.php', {
-                            method: 'POST',
-                            headers: {
-                                'Content-Type': 'application/x-www-form-urlencoded' //El tipo de datos que se manda urlencoded como clave=valor por ejemplo puntuacion=100
-                            },
-                            body: `puntuacion=${puntuacion}`  //Enviar la puntuación con la variable para que el servidor la reciba
-                        })
-                        .then(response => {
-                            // Comprobamos si el servidor responde bien
-                            if (!response.ok) {
-                                throw new Error('error al guardar la puntuacion'); // mostramos que hay un error si algo falla
+            // Para mandar la puntuacion al servidor con un post
+            fetch('https://localhost/Programacion-JS-para-ProtectBird-main/php/guardarpuntuacion.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/x-www-form-urlencoded' //El tipo de datos que se manda urlencoded como clave=valor por ejemplo puntuacion=100
+                    },
+                    body: `puntuacion=${puntuacion}`  //Enviar la puntuación con la variable para que el servidor la reciba
+                    })
+                    .then(response => {
+                        // Comprobamos si el servidor responde bien
+                        if (!response.ok) {
+                            throw new Error('error al guardar la puntuacion'); // mostramos que hay un error si algo falla
                             }
                             return response.text(); // devuelve la respuesta del servidor
-                        })
-                        .then(data => {
-                            console.log('puntuacion guardada:', data); // imprimimos en consola para verificar
-                        })
-                        .catch(error => {
-                            console.error('hubo un problema con la solicitud:', error); // muestra el error en caso de fallo
-                        })
-                        .finally(() => {
-                            // siempre mostramos el mensaje de game over despues
-
-            Swal.fire({
-                title: '¡Game Over!',
-                text: 'Tu puntuaje en este intento es: ' + puntuacion + '. Dale al botón de "Jugar" si quieres volver a intentarlo ;D',
-                icon: 'error',
-                confirmButtonText: '¡OK!'
-            }).then(() => {
-                window.location.reload(); // Recarga la página después de cerrar la alerta
-            });
-            reiniciarJuego();
-        }
-}
-}
+                            })
+                            .then(data => {
+                                console.log('puntuacion guardada:', data); // imprimimos en consola para verificar
+                                })
+                                .catch(error => {
+                                    console.error('hubo un problema con la solicitud:', error); // muestra el error en caso de fallo
+                                    })
+                                    .finally(() => {
+                                        // siempre mostramos el mensaje de game over despues
+                                        Swal.fire({
+                                            title: '¡Game Over!',
+                                            text: 'Tu puntuaje en este intento es: ' + puntuacion + '. Dale al botón de "Jugar" si quieres volver a intentarlo ;D',
+                                            icon: 'error',
+                                            confirmButtonText: '¡OK!'
+                                        }).then(() => {
+                                            window.location.reload(); // Recarga la página después de cerrar la alerta
+                                            });
+                                            reiniciarJuego();
+                                        }
+                                    }
+                                }
 
 function iniciarGame(){
     document.querySelector('.botoninicio').style.display = 'none';
