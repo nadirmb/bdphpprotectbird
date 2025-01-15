@@ -1,5 +1,5 @@
 <?php
-session_start(); // Iniciar sesion
+session_start(); // Iniciar sesion o la deja mantenida si ya esta iniciada
 
 // quitar todas las variables de sesión
 session_unset();
