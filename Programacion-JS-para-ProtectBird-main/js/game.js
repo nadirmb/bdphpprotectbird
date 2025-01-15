@@ -156,6 +156,7 @@ function tuboColisiones() {
                                         }).then(() => {
                                             window.location.reload(); // Recarga la página después de cerrar la alerta
                                             });
+                                        });
                                             reiniciarJuego();
                                         }
                                     }
