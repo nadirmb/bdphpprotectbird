@@ -8,10 +8,10 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
    // Conectamos a la base de datos. 
    $host = "localhost"; // el servidordonde está la base de datos
-   $user = "root"; // el usuario de la base de datos
-   $password = ""; // la contraseña 
+   $db_user = "root"; // el usuario de la base de datos
+   $db_pass = ""; // la contraseña 
    $dbname = "protect_bird_db"; // el nombre de la base de datos
-   $conn = new mysqli($host, $user, $password, $dbname); // creamos la conexión
+
     
     // creamos la conexión con la base de datos
     $conn = new mysqli($host, $db_user, $db_pass, $dbname);
