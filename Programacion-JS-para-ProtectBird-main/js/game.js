@@ -146,21 +146,21 @@ function tuboColisiones() {
                                 .catch(error => {
                                     console.error('hubo un problema con la solicitud:', error); // muestra el error en caso de fallo
                                     })
-                                    .finally(() => {
-                                        // siempre mostramos el mensaje de game over despues
-                                        Swal.fire({
-                                            title: '¡Game Over!',
-                                            text: 'Tu puntuaje en este intento es: ' + puntuacion + '. Dale al botón de "Jugar" si quieres volver a intentarlo ;D',
-                                            icon: 'error',
-                                            confirmButtonText: '¡OK!'
-                                        }).then(() => {
-                                            window.location.reload(); // Recarga la página después de cerrar la alerta
-                                            });
-                                        });
-                                            reiniciarJuego();
-                                        }
+                                    // siempre mostramos el mensaje de game over despues
+                                    Swal.fire({
+                                        title: '¡Game Over!',
+                                        text: 'Tu puntuaje en este intento es: ' + puntuacion + '. Dale al botón de "Jugar" si quieres volver a intentarlo ;D',
+                                        icon: 'error',
+                                        confirmButtonText: '¡OK!'
+                                    }).then(() => {
+                                        window.location.reload();
                                     }
-                                }
+                                );
+                                reiniciarJuego(); 
+                            }
+                        }
+                    }
+                                
 
 function iniciarGame(){
     document.querySelector('.botoninicio').style.display = 'none';
@@ -186,10 +186,12 @@ function reiniciarJuego() {
     inicioTime = 0;
     tubos.length = 0; // Vaciamos el array de tubos
     velocidadTubo = 3; // reiniciamos la velocidad de los tubos
-
-    iniciarGame();
 }
 
+
+function limpiarFondo(){
+    dibujo.clearRect(0, 0, canvas.width, canvas.height);
+}
 
 
 document.addEventListener("keydown", (event) =>{
