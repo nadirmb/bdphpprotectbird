@@ -25,14 +25,6 @@ Create Table puntuaciones (
     -- y jugadores ya que cada puntuacion tiene que ir relacionada con la tabla de jugadores --
     );
 
---Hemos pensado en hacer una tabla para la configuracion del juego, como el sonido etc....... --
-Create table configuracion(
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    sonido BOOLEAN NOT NULL,
-    id_jugador INT NOT NULL,
-    FOREIGN KEY (id_jugador) REFERENCES jugadores(id) ON DELETE CASCADE -- esta seria otra FK el nombre es diferente para poder dferenciarse entre ellas --
-    );
-
 -- de momento hay una tabla puntuaciones, configuracion, jugadores nombre correo contraseña 
 -- Nos gustaria hacer indices para mejorar el rendimiento y que las busqueadas sean mas rapidas--
 --indice para que la busqueda por correo sea aun mas rapida
@@ -40,6 +32,3 @@ CREATE UNIQUE INDEX idx_correo ON jugadores(correo);
 
 -- indice para mejorar consultas por jugador en puntuaciones
 CREATE INDEX idx_puntuaciones_jugador ON puntuaciones(id_jugadordos);
-
---indice para búsquedas rapidas en configuracion por el jugador
-CREATE INDEX idx_configuracion_jugador ON configuracion(id_jugadordos);
